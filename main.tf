@@ -1,6 +1,8 @@
 provider "google"
 {
-  
+  project = var.projectid
+  region  = var.regionname 
+
 }
 
 module "vm_instance"{
