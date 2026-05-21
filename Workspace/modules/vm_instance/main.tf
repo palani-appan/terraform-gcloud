@@ -1,11 +1,11 @@
-provider "google"
-{
-  
+provider "google" {
+  project = var.projectid
+  region  = var.regionname 
 }
 
-module "vm_instance"{
-    source = "./Workspace/modules/vm_instance"
-    name           = var.instancename
+resource "google_compute_instance" "github_instance"{
+
+      name           = var.instancename
       project        = var.projectid
       machine_type = var.machinetype
       zone         = var.zonename
@@ -19,4 +19,5 @@ module "vm_instance"{
         access_config {
             // Includes this block to assign an external ephemeral IP
          }
+    }
 }
